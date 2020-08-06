@@ -7,7 +7,7 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-token = os.environ.get("tg", "985403265:AAFSOSsxtLT2FEC_Hq37mrgmRyxIWydSd4Q")
+token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
 bot = telebot.TeleBot(token)
 
 translator = Translator()
