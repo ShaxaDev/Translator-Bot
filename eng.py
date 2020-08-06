@@ -1,15 +1,14 @@
 import telebot
 from telebot import types
-
+import os
 from gtts import gTTS
 
 
 from googletrans import Translator
 
 
-
-token='1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M'
-bot=telebot.TeleBot(token)
+token = os.environ.get("tg", "'985403265:AAFSOSsxtLT2FEC_Hq37mrgmRyxIWydSd4Q")
+bot = telebot.TeleBot(token)
 
 translator = Translator()
 users=[977851759,1089169019]    
