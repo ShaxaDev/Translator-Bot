@@ -10,23 +10,21 @@ from googletrans import Translator
 token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
 bot = telebot.TeleBot(token)
 
-translator = Translator()
-users=[977851759,1089169019]    
-@bot.message_handler(commands=['admin'])
-def send_(message):
-    if message.from_user.id==995951832:
-        for user in users:
-            bot.send_message(user.id,message.text)
+translator = Translator(service_urls=[
+    'translate.google.com',
+    'translate.google.co.kr',
+])
+savol = "*Assalomu alaykum {} bot imkoniyatlari bilan tanishing\n✅Ingliz tili\n✅Rus tili\n✅Koreys tili\n✅Nemis tili\n✅Fransuz tili\n✅Arab tili\n✅Turk tili\nYuqorida keltirilgan tillarda yozilgan matnni\nO'ZBEK tilidagi tarjimasini va \nmatn qaysi tilda bo'lsa o'sha tildagi o'qilishini ya'ni audiosini olishingiz mumkin\nQo'shimcha agar o'zbekcha matn kiritsangiz 7 tildagi tarjimasini olishingiz mumkin*"
+    
 
-
-suz = '*Assalomu alaykum @{} men tarjimon botman\nsiz menga ingliz,rus va koreys tilidagi suz yoki matn shaklidagi xabar jo\'natasiz\nMen sizga matnni o\'zbek tilidagi  tarjimasini🇺🇿 va siz bergan matn qaysi tilda bo\'lsa xuddi o\'sha tildagi audiosini yuboraman🇬🇧🇰🇷🇷🇺 qani boshladik!\n\nAgar sizga o\'zbek tilidagi so\'zlar tarjimasi kerak bo\'lsa\nso\'zni yozib yuboring va men sizga 3 tildagi tarjimasini yuboraman *'
+#suz = '*Assalomu alaykum @{} men tarjimon botman\nsiz menga ingliz,rus va koreys tilidagi suz yoki matn shaklidagi xabar jo\'natasiz\nMen sizga matnni o\'zbek tilidagi  tarjimasini🇺🇿 va siz bergan matn qaysi tilda bo\'lsa xuddi o\'sha tildagi audiosini yuboraman🇬🇧🇰🇷🇷🇺 qani boshladik!\n\nAgar sizga o\'zbek tilidagi so\'zlar tarjimasi kerak bo\'lsa\nso\'zni yozib yuboring va men sizga 3 tildagi tarjimasini yuboraman *'
 
 
 @bot.message_handler(commands=['start'])
 def m(message):
     k = open('en.jpg', 'rb')
 
-    bot.send_photo(message.chat.id, k,suz.format(
+    bot.send_photo(message.chat.id, k,savol.format(
         message.from_user.username), parse_mode='markdown')
     
     k.close()
@@ -79,9 +77,52 @@ def send(txt):
         p=translator.translate(e, dest='en')
         q=translator.translate(e, dest='ru')
         r=translator.translate(e, dest='ko')
-        bot.reply_to(txt,'*ingliz tilida 🇬🇧 ➡️ {}\nrus tilida 🇷🇺 ➡️ {}\nkoreys tilida 🇰🇷 ➡️ {}*'.format(p.text,q.text,r.text),parse_mode='markdown')
+        r1=translator.translate(e,dest='fr')
+        r2=translator.translate(e,dest='tr')
+        r4=translator.translate(e,dest='de')
+        r5=translator.translate(e,dest='ar')
+        bot.reply_to(txt, '*ingliz tilida 🇬🇧 ➡️ {}\nrus tilida 🇷🇺 ➡️ {}\nkoreys tilida 🇰🇷 ➡️ {}\nfransuz tilida 🇫🇷 ➡️ {}\nNemis tilida 🇩🇪 ➡️ {}\nTurk tilida 🇹🇷 ➡️ {}\nArab tilida ➡️ {} *'.format(
+            p.text, q.text, r.text,r1.text,r4.text,r2.text,r5.text), parse_mode='markdown')
         
-
+    elif a.lang=='fr':
+        bot.reply_to(txt,k.text)
+        bot.send_chat_action(txt.from_user.id,'record_audio')
+        out=gTTS(text=s,lang='fr',slow=False)
+        out.save('audio.mp3')
+        f=open('audio.mp3','rb')
+        bot.send_audio(
+            txt.chat.id, f, "*siz yozgan matn audiosi fransuz tilida 🇫🇷 tinglang🔊*", parse_mode='markdown')
+        print(a.lang)
+        f.close()
+    elif a.lang=='ar':
+        bot.reply_to(txt,k.text)
+        bot.send_chat_action(txt.from_user.id,'record_audio')
+        out=gTTS(text=s,lang='ar',slow=False)
+        out.save('audio.mp3')
+        f=open('audio.mp3','rb')
+        bot.send_audio(txt.chat.id,f,"*siz yozgan matn audiosi arab tiida 🇸🇦 tilida tinglang🔊*",parse_mode='markdown')
+        print(a.lang)
+        f.close()
+    elif a.lang=='de':
+        bot.reply_to(txt, k.text)
+        bot.send_chat_action(txt.from_user.id, 'record_audio')
+        out = gTTS(text=s, lang='de', slow=False)
+        out.save('audio.mp3')
+        f = open('audio.mp3', 'rb')
+        bot.send_audio(
+            txt.chat.id, f, "*siz yozgan matn audiosi nemis tilida 🇩🇪 tinglang🔊*", parse_mode='markdown')
+        print(a.lang)
+        f.close()
+    elif a.lang=='tr':
+        bot.reply_to(txt,k.text)
+        bot.send_chat_action(txt.from_user.id,'record_audio')
+        out=gTTS(text=s,lang='tr',slow=False)
+        out.save('audio.mp3')
+        f=open('audio.mp3','rb')
+        bot.send_audio(
+            txt.chat.id, f, "*siz yozgan matn audiosi turk tilida 🇹🇷 tinglang🔊*", parse_mode='markdown')
+        print(a.lang)
+        f.close()
 
         
 
@@ -89,7 +130,7 @@ def send(txt):
     
     
     else:
-        bot.reply_to(txt,'*faqat ruscha,inglizcha yoki koreyscha so\'z yoki matn yozing iltimos*',parse_mode='markdown')
+        bot.reply_to(txt,'*Iltimos,ro\'yxatdagi tillardan birida yozing iltimos*',parse_mode='markdown')
 
         
 
@@ -98,8 +139,7 @@ def send(txt):
 
 
 
-
-
+bot.polling()
 
 
 
