@@ -11,6 +11,7 @@ db = psycopg2 .connect(user='qprulziufzusxo',database='df7rvj9jlqrtq9',password=
 sql = db.cursor()
 sql.execute("""CREATE TABLE IF NOT EXISTS user(id BIGINT UNIQUE,ism TEXT)""")
 db.commit()
+db.close()
 
 token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
 bot = telebot.TeleBot(token)
@@ -30,7 +31,7 @@ def admin(ms):
     bot.register_next_step_handler(xabar,admin2)
 
 def admin2(ms):
-    for i in psycopg2 .execute("select * from user"):
+    for i in sql.execute("select * from user"):
        
         print(i[0])
         bot.send_message(i[0],'{}'.format(ms.text))
@@ -48,6 +49,7 @@ def m(message):
 
         sql.execute(f"INSERT INTO user VALUES(?,?)",(k,l))
         db.commit()
+        db.close()
         
     except:
         pass
