@@ -1,4 +1,5 @@
 gtts 
 pytelegrambotapi
 googletrans
+psycopg2 
 
