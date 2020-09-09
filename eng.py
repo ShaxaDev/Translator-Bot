@@ -9,7 +9,7 @@ import psycopg2
 
 db = psycopg2 .connect(user='qprulziufzusxo',database='df7rvj9jlqrtq9',password='b249fee9ffb59482fbdecadf685b2312774671c5837e94ed84ddce5ef3b8b4f1',host='ec2-52-87-22-151.compute-1.amazonaws.com',port='5432')
 sql = db.cursor()
-sql.execute("""CREATE TABLE IF NOT EXISTS user(id BIGINT UNIQUE,ism TEXT)""")
+sql.execute("""CREATE TABLE IF NOT EXISTS user (id BIGINT UNIQUE,ism TEXT)""")
 db.commit()
 db.close()
 
