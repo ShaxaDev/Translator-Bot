@@ -5,13 +5,13 @@ from gtts import gTTS
 
 
 from googletrans import Translator
-import psycopg2 
+import sqlite3
 
-db = psycopg2.connect(user='qprulziufzusxo',database='df7rvj9jlqrtq9',password='b249fee9ffb59482fbdecadf685b2312774671c5837e94ed84ddce5ef3b8b4f1',host=ec2-52-87-22-151.compute-1.amazonaws.com,port='5432')
+db = sqlite3.connect('Savdo.db', check_same_thread=False)
 sql = db.cursor()
 sql.execute("CREATE TABLE IF NOT EXISTS user (id BIGINT UNIQUE,ism TEXT);")
 db.commit()
-db.close()
+
 
 token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
 bot = telebot.TeleBot(token)
@@ -49,7 +49,7 @@ def m(message):
 
         sql.execute(f"INSERT INTO user VALUES(?,?)",(k,l))
         db.commit()
-        db.close()
+        
         
     except:
         pass
