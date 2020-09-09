@@ -1,4 +1,4 @@
 gtts 
 pytelegrambotapi
 googletrans
-sqlite
+sqlite3==2.6.0
