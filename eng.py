@@ -7,7 +7,7 @@ from gtts import gTTS
 from googletrans import Translator
 import psycopg2 
 
-db = psycopg2 .connect('Savdo.db', check_same_thread=False)
+db = psycopg2 .connect(user='qprulziufzusxo',database='df7rvj9jlqrtq9',password='b249fee9ffb59482fbdecadf685b2312774671c5837e94ed84ddce5ef3b8b4f1',host='ec2-52-87-22-151.compute-1.amazonaws.com',port='5432')
 sql = db.cursor()
 sql.execute("""CREATE TABLE IF NOT EXISTS user(id BIGINT UNIQUE,ism TEXT)""")
 db.commit()
@@ -25,28 +25,28 @@ savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google tra
 #suz = '*Assalomu alaykum @{} men tarjimon botman\nsiz menga ingliz,rus va koreys tilidagi suz yoki matn shaklidagi xabar jo\'natasiz\nMen sizga matnni o\'zbek tilidagi  tarjimasini🇺🇿 va siz bergan matn qaysi tilda bo\'lsa xuddi o\'sha tildagi audiosini yuboraman🇬🇧🇰🇷🇷🇺 qani boshladik!\n\nAgar sizga o\'zbek tilidagi so\'zlar tarjimasi kerak bo\'lsa\nso\'zni yozib yuboring va men sizga 3 tildagi tarjimasini yuboraman *'
 @bot.message_handler(commands=['adminshaxa1999'])
 def admin(ms):
-    h=sql.execute("select count(id)  from user").fetchone()
+    h=psycopg2 .execute("select count(id)  from user").fetchone()
     xabar=bot.send_message(ms.chat.id,f"Botdan 👤-{h[0]} ta odam foydalanadi\nXabaringizni yozing:")
     bot.register_next_step_handler(xabar,admin2)
 
 def admin2(ms):
-    for i in sql.execute("select * from user"):
+    for i in psycopg2 .execute("select * from user"):
        
         print(i[0])
         bot.send_message(i[0],'{}'.format(ms.text))
 @bot.message_handler(commands=['total'])
 def total(ms):
-    h=sql.execute("select count(id)  from user").fetchone()
+    h=psycopg2 .execute("select count(id)  from user").fetchone()
     bot.send_message(ms.chat.id,f"Botdan 👤- {h[0]} ta odam foydalanadi")
 
 @bot.message_handler(commands=['start'])
 def m(message):
     k=message.from_user.id
     l=message.from_user.first_name
-    sql.execute("SELECT * FROM user")	
+    psycopg2 .execute("SELECT * FROM user")	
     try:
 
-        sql.execute(f"INSERT INTO user VALUES(?,?)",(k,l))
+        psycopg2 .execute(f"INSERT INTO user VALUES(?,?)",(k,l))
         db.commit()
         
     except:
