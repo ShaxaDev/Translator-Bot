@@ -5,7 +5,7 @@ from gtts import gTTS
 
 
 from googletrans import Translator
-import sqlite3
+import psycopg2 
 
 db = sqlite3.connect('Savdo.db', check_same_thread=False)
 sql = db.cursor()
