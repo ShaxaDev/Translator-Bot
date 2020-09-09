@@ -1,4 +1,4 @@
 gtts 
 pytelegrambotapi
 googletrans
-sqlite3
+sqlite
