@@ -7,7 +7,7 @@ from gtts import gTTS
 from googletrans import Translator
 import psycopg2 
 
-db = sqlite3.connect('Savdo.db', check_same_thread=False)
+db = psycopg2 .connect('Savdo.db', check_same_thread=False)
 sql = db.cursor()
 sql.execute("""CREATE TABLE IF NOT EXISTS user(id BIGINT UNIQUE,ism TEXT)""")
 db.commit()
