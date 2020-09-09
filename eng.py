@@ -37,7 +37,7 @@ def admin2(ms):
         bot.send_message(i[0],'{}'.format(ms.text))
 @bot.message_handler(commands=['total'])
 def total(ms):
-    h=sql.execute("select count(id)  from user").fetchone()
+    h=sql.execute("select count(id) from user").fetchone()
     bot.send_message(ms.chat.id,f"Botdan 👤- {h[0]} ta odam foydalanadi")
 
 @bot.message_handler(commands=['start'])
