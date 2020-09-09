@@ -1,3 +1,4 @@
 gtts 
 pytelegrambotapi
 googletrans
+sqlite3
