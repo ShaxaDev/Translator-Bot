@@ -34,9 +34,24 @@ def admin2(ms):
        
         print(i[0])
         bot.send_message(i[0],'{}'.format(ms.text))
+@bot.message_handler(commands=['total'])
+def total(ms):
+    h=sql.execute("select count(id)  from user").fetchone()
+    bot.send_message(ms.chat.id,f"Botdan 👤- {h[0]} ta odam foydalanadi")
 
 @bot.message_handler(commands=['start'])
 def m(message):
+    k=message.from_user.id
+    l=message.from_user.first_name
+    sql.execute("SELECT * FROM user")	
+    try:
+
+        sql.execute(f"INSERT INTO user VALUES(?,?)",(k,l))
+        db.commit()
+        
+    except:
+        pass
+        
     k = open('image.jpg', 'rb')
 
     bot.send_photo(message.chat.id, k,savol.format(
