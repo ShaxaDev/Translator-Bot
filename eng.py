@@ -28,7 +28,7 @@ savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google tra
 def m(message):
    
         
-    k = open('image.jpg', 'rb')
+    k = open('edit.jpg', 'rb')
 
     bot.send_photo(message.chat.id, k,savol.format(
         message.from_user.username), parse_mode='markdown')
