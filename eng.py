@@ -5,12 +5,9 @@ from gtts import gTTS
 
 
 from googletrans import Translator
-import sqlite3
 
-db = sqlite3.connect('Savdo.db', check_same_thread=False)
-sql = db.cursor()
-sql.execute("CREATE TABLE IF NOT EXISTS user (id BIGINT UNIQUE,ism TEXT);")
-db.commit()
+
+
 
 
 token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
@@ -20,39 +17,16 @@ translator = Translator(service_urls=[
     'translate.google.com',
     'translate.google.co.kr',
 ])
-savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google translate bilan deyarli bir xil ishlaydi matnni audio shaklida ham tinglashingiz mumkin\n✅Ingliz tili\n✅Rus tili\n✅Koreys tili\n✅Nemis tili\n✅Fransuz tili\n✅Arab tili\n✅Turk tili\nYuqorida keltirilgan tillarda yozilgan matnni\nO'ZBEK tilidagi tarjimasini va \nmatn qaysi tilda bo'lsa o'sha tildagi o'qilishini ya'ni audiosini olishingiz mumkin\nQo'shimcha agar o'zbekcha matn kiritsangiz 7 tildagi tarjimasini olishingiz mumkin\n\nDasturchi👨🏻‍💻: To`lisov Shaxzod*"
+savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google translate bilan deyarli bir xil ishlaydi matnni audio shaklida ham tinglashingiz mumkin\n✅Ingliz tili\n✅Rus tili\n✅Koreys tili\n✅Nemis tili\n✅Fransuz tili\n✅Arab tili\n✅Turk tili\nYuqorida keltirilgan tillarda yozilgan matnni\nO'ZBEK tilidagi tarjimasini va \nmatn qaysi tilda bo'lsa o'sha tildagi o'qilishini ya'ni audiosini olishingiz mumkin\nQo'shimcha agar o'zbekcha matn kiritsangiz 7 tildagi tarjimasini olishingiz mumkin\n\nDasturchi👨🏻‍💻: Luco Zayn*"
     
 
 #suz = '*Assalomu alaykum @{} men tarjimon botman\nsiz menga ingliz,rus va koreys tilidagi suz yoki matn shaklidagi xabar jo\'natasiz\nMen sizga matnni o\'zbek tilidagi  tarjimasini🇺🇿 va siz bergan matn qaysi tilda bo\'lsa xuddi o\'sha tildagi audiosini yuboraman🇬🇧🇰🇷🇷🇺 qani boshladik!\n\nAgar sizga o\'zbek tilidagi so\'zlar tarjimasi kerak bo\'lsa\nso\'zni yozib yuboring va men sizga 3 tildagi tarjimasini yuboraman *'
-@bot.message_handler(commands=['adminshaxa1999'])
-def admin(ms):
-    h=sql.execute("select count(id)  from user").fetchone()
-    xabar=bot.send_message(ms.chat.id,f"Botdan 👤-{h[0]} ta odam foydalanadi\nXabaringizni yozing:")
-    bot.register_next_step_handler(xabar,admin2)
 
-def admin2(ms):
-    for i in sql.execute("select * from user"):
        
-        print(i[0])
-        bot.send_message(i[0],'{}'.format(ms.text))
-@bot.message_handler(commands=['total'])
-def total(ms):
-    h=sql.execute("select count(id) from user").fetchone()
-    bot.send_message(ms.chat.id,f"Botdan 👤- {h[0]} ta odam foydalanadi")
 
 @bot.message_handler(commands=['start'])
 def m(message):
-    k=message.from_user.id
-    l=message.from_user.first_name
-    sql.execute("SELECT * FROM user")	
-    try:
-
-        sql.execute(f"INSERT INTO user VALUES(?,?)",(k,l))
-        db.commit()
-        
-        
-    except:
-        pass
+   
         
     k = open('image.jpg', 'rb')
 
