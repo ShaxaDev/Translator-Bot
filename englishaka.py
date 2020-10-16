@@ -10,7 +10,7 @@ from googletrans import Translator
 
 
 
-token = os.environ.get("tg", "1112656267:AAGzzEYPmt4vv16xE97g_9Q2_5czJnUWe3M")
+token ="1358161493:AAGdBzeOzC9SpxkxjUZvDU6R20Ko1Bn6yz0"
 bot = telebot.TeleBot(token)
 
 translator = Translator(service_urls=[
