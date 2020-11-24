@@ -17,7 +17,7 @@ translator = Translator(service_urls=[
     'translate.google.com',
     'translate.google.co.kr',
 ])
-savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google translate bilan deyarli bir xil ishlaydi matnni audio shaklida ham tinglashingiz mumkin\n✅Ingliz tili\n✅Rus tili\n✅Koreys tili\n✅Nemis tili\n✅Fransuz tili\n✅Arab tili\n✅Turk tili\nYuqorida keltirilgan tillarda yozilgan matnni\nO'ZBEK tilidagi tarjimasini va \nmatn qaysi tilda bo'lsa o'sha tildagi o'qilishini ya'ni audiosini olishingiz mumkin\nQo'shimcha agar o'zbekcha matn kiritsangiz 7 tildagi tarjimasini olishingiz mumkin\n\nDasturchi👨🏻‍💻: Luco Zayn*"
+savol = "*Assalomu alaykum @{} bot imkoniyatlari bilan tanishing\nBot google translate bilan deyarli bir xil ishlaydi matnni audio shaklida ham tinglashingiz mumkin\n✅Ingliz tili\n✅Rus tili\n✅Koreys tili\n✅Nemis tili\n✅Fransuz tili\n✅Arab tili\n✅Turk tili\nYuqorida keltirilgan tillarda yozilgan matnni\nO'ZBEK tilidagi tarjimasini va \nmatn qaysi tilda bo'lsa o'sha tildagi o'qilishini ya'ni audiosini olishingiz mumkin\nQo'shimcha agar o'zbekcha matn kiritsangiz 7 tildagi tarjimasini olishingiz mumkin\n\nDasturchi👨🏻‍💻: @ShaxaDev *"
     
 
 #suz = '*Assalomu alaykum @{} men tarjimon botman\nsiz menga ingliz,rus va koreys tilidagi suz yoki matn shaklidagi xabar jo\'natasiz\nMen sizga matnni o\'zbek tilidagi  tarjimasini🇺🇿 va siz bergan matn qaysi tilda bo\'lsa xuddi o\'sha tildagi audiosini yuboraman🇬🇧🇰🇷🇷🇺 qani boshladik!\n\nAgar sizga o\'zbek tilidagi so\'zlar tarjimasi kerak bo\'lsa\nso\'zni yozib yuboring va men sizga 3 tildagi tarjimasini yuboraman *'
