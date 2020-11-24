@@ -1,1 +1,1 @@
-worker:python3 englishaka.py
+worker: python3 englishaka.py
