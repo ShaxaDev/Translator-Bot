@@ -1,2 +1,2 @@
 # english
-<a href='google.com'>google</a>
+tarjimon bot bir nechta tilda tarjima qila oladi
